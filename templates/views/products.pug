@@ -1,0 +1,29 @@
+extends ../layouts/default
+block content
+  .container
+    h1.animated.fadeInDown.text-center New Products
+    each product in products
+      .wow.animated.fadeIn
+        hr
+        .row.product-items
+          .col-sm-6
+            a(href='/products/' + product.slug)
+              img(src=product._.image.limit(250))
+          .col-sm-6
+            
+            a(href='/products/' + product.slug)
+              h5
+                b= product.title
+            
+              p £
+                = product.price
+              p
+                = product.qty
+                |  Available
+              p= product.brief
+            a(href='/products/' + product.slug)
+              button.btn.btn-primary
+                | SEE MORE
+            a(href='#')
+              button(onclick='confAlert()').btn.btn-success
+                | BUY

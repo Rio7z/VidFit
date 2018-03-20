@@ -1,0 +1,72 @@
+extends ../layouts/default
+
+mixin post(post)
+
+	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
+		
+		.thumbnail.item-p.wow.animated.fadeIn
+			a.link(href='/videos/post/' + post.slug)
+				img(src=post._.image.limit(250))
+				hr
+				h5
+					b
+						= post.title
+				p= post.content.minutes
+					|  Minutes 
+		
+//-		p.lead.text-muted
+			if post.publishedDate
+				| #{post._.publishedDateformat('D-MM-YY')} 
+			if post.categories && post.categories.length
+				each cat, i in post.categories
+					a(href='/videos/' + cat.key)= cat.name
+					if i < post.categories.length - 1
+
+block intro
+	.container
+		h1.text-center.animated.fadeInDown= data.category ? data.category.name : 'Latest Videos'
+		hr
+		
+		.dropdown
+			button.btn.btn-default.dropdown-toggle(type='button', id='dropdownMenu1', data-toggle='dropdown', aria-expanded='false')
+				| Categories 
+				span.caret
+			ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+				li
+					a(href='/videos/', class=!data.category ? 'active' : false) All
+					each cat in data.categories
+						li
+							a(href='/videos/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false)= cat.name
+		hr
+block content
+	.container: .row
+		if data.categories.length
+		.col-sm-12
+			if filters.category && !data.category
+				h3.text-muted Invalid Category.
+			else
+				if data.posts.results.length
+
+					.video.video-items
+						each post in data.posts.results
+							+post(post)
+					
+					if data.posts.totalPages > 1
+						ul.pagination.product-items.wow.animated.fadeInUp
+							if data.posts.previous
+								li: a(href='?page=' + data.posts.previous): span.glyphicon.glyphicon-chevron-left
+							else
+								li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
+							each p, i in data.posts.pages
+								li(class=data.posts.currentPage == p ? 'active' : null)
+									a(href='?page=' + (p == '...' ? (i ? data.posts.totalPages : 1) : p ))= p
+							if data.posts.next
+								li: a(href='?page=' + data.posts.next): span.glyphicon.glyphicon-chevron-right(style='color:#111111;')
+							else
+								li.disabled: a(href='?page=' + data.posts.totalPages): span.entypo.glyphicon.glyphicon-chevron-right
+				else
+					if data.category
+						h3.text-muted There are no posts in the category #{data.category.name}.
+					else
+						h3.text-muted There are no posts yet.
+		

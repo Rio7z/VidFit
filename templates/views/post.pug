@@ -1,0 +1,64 @@
+extends ../layouts/default
+
+block content
+	.container
+		article
+			p: a(href='/videos').animated.fadeIn &larr; back to the Videos
+			if !data.post
+				h2 Invalid Post.
+			else
+				header
+					h1.animated.fadeInDown= data.post.title
+				hr
+				.row.animated.fadeIn
+					
+					.col-md-12
+						.post.videoWrapper
+							!= data.post.video
+				hr
+				.row.wow.animated.fadeInUp
+					.col-md-3.col-sm-8
+						.panel.panel-default
+							.panel-heading
+								h4 INFORMATION
+							.panel-body!= data.post.content.brief
+					.col-md-3.col-sm-4.text-center
+						.panel.panel-default
+							.panel-heading
+								h4 CALORIE BURN 
+							h4!= data.post.content.calorie
+					.col-md-3.col-sm-4.text-center
+						.panel.panel-default
+							.panel-heading
+								h4 DIFFICULTY
+							h4!= data.post.content.difficulty 
+					.col-md-3.col-sm-4.text-center
+						.panel.panel-default
+							.panel-heading
+								h4 EQUIPMENT
+							h4!= data.post.content.equipment
+
+					.col-sm-9.col-xs-12.wow.animated.fadeIn
+						.panel.panel-default
+							.panel-heading
+								h4 COMMENTS
+						.panel.panel-default
+							.panel-heading
+								strong Testuser1
+								span.text-muted  commented 3 days ago
+							.panel-body
+								| User comment here
+					.col-sm-9.col-xs-12.wow.animated.fadeIn
+						.panel.panel-default
+							.panel-heading
+								strong Testuser2
+								span.text-muted  commented 4 days ago
+							.panel-body
+								| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel varius augue, a molestie lacus. Cras a posuere enim, non bibendum augue. Phasellus lacinia sapien non ex hendrerit efficitur. Morbi sed magna leo. Etiam aliquet aliquet ligula, in viverra lorem posuere sit amet. Nunc iaculis suscipit arcu, sed elementum quam imperdiet ut. Suspendisse in mi vulputate, pharetra turpis eget, lacinia nibh. Vivamus sit amet tortor ex. Nulla ultricies turpis in sem suscipit, a tincidunt nisl tempus. Etiam nibh velit, consectetur sed consectetur at, faucibus ut lectus. 
+					.col-sm-9.col-xs-12.wow.animated.fadeIn
+						.panel.panel-default
+							.panel-heading
+								strong Testuser3
+								span.text-muted  commented 5 days ago
+							.panel-body
+								| Nunc iaculis suscipit arcu, sed elementum quam imperdiet ut. Suspendisse in mi vulputate, pharetra turpis eget, lacinia nibh. Vivamus sit amet tortor ex. Nulla ultricies turpis in sem suscipit, a tincidunt nisl tempus. Etiam nibh velit, consectetur sed consectetur at, faucibus ut lectus.

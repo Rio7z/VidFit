@@ -1,0 +1,74 @@
+extends ../layouts/default
+block content
+  .container
+    .row
+      .col-md-12.col-lg-12
+        article
+          p
+            a(href='/products').wow.animated.fadeInDown &larr; Back to Products
+            header
+              h1.animated.fadeInDown.text-center= data.product.title
+              hr
+            .row.wow.animated.fadeIn
+              .col-md-6
+                if data.product.image
+                  img.thumbnail.center-block(src=data.product._.image.limit(250) crop='fit').img-responsive
+              .col-md-3.text-center
+                .panel.panel-default
+                  .panel-heading
+                    strong Price
+                  h= data.product.price
+              .col-md-3.text-center
+                .panel.panel-default
+                  .panel-heading
+                    strong Quantity
+                  = data.product.qty
+                  
+              .col-md-6
+                .well
+                  p!= data.product.description
+                .product-items
+                  a(href='#')
+                    button(onclick='confAlert()').btn.btn-success BUY
+                  a.btn.btn-primary(href='/contact') ASK ABOUT THIS PRODUCT
+        .col-sm-12.col-xs-12.wow.animated.fadeInUp
+          .panel.panel-default
+            .panel-heading
+              h4 COMMENTS
+
+        .col-sm-12.col-xs-12.wow.animated.fadeInUp
+          .panel.panel-default
+            .panel-heading
+              strong Testuser1 
+              i.fa.fa-star
+              i.fa.fa-star
+              i.fa.fa-star
+              i.fa.fa-star
+              i.fa.fa-star-o
+              span.text-muted  commented 4 days ago 
+            .panel-body
+              | Feedback
+        .col-sm-12.col-xs-12.wow.animated.fadeInUp
+          .panel.panel-default
+            .panel-heading
+              strong Testuser2 
+              i.fa.fa-star
+              i.fa.fa-star
+              i.fa.fa-star
+              i.fa.fa-star-o
+              i.fa.fa-star-o
+              span.text-muted  commented 4 days ago
+            .panel-body
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel varius augue, a molestie lacus. Cras a posuere enim, non bibendum augue. Phasellus lacinia sapien non ex hendrerit efficitur. Morbi sed magna leo. Etiam aliquet aliquet ligula, in viverra lorem posuere sit amet. Nunc iaculis suscipit arcu, sed elementum quam imperdiet ut. Suspendisse in mi vulputate, pharetra turpis eget, lacinia nibh. Vivamus sit amet tortor ex. Nulla ultricies turpis in sem suscipit, a tincidunt nisl tempus. Etiam nibh velit, consectetur sed consectetur at, faucibus ut lectus. 
+        .col-sm-12.col-xs-12.wow.animated.fadeInUp
+          .panel.panel-default
+            .panel-heading
+              strong Testuser3 
+              i.fa.fa-star
+              i.fa.fa-star
+              i.fa.fa-star
+              i.fa.fa-star
+              i.fa.fa-star
+              span.text-muted  commented 5 days ago
+            .panel-body
+              | Nunc iaculis suscipit arcu, sed elementum quam imperdiet ut. Suspendisse in mi vulputate, pharetra turpis eget, lacinia nibh. Vivamus sit amet tortor ex. Nulla ultricies turpis in sem suscipit, a tincidunt nisl tempus. Etiam nibh velit, consectetur sed consectetur at, faucibus ut lectus.
