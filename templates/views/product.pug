@@ -10,7 +10,7 @@ block content
           .row.wow.animated.fadeIn
             .col-md-6
               if data.product.image
-                img.thumbnail.center-block(src=data.product._.image.limit(250) crop='fit').img-responsive
+                img.thumbnail2.center-block(src=data.product._.image.limit(250) crop='fit').img-responsive
             .col-md-3.text-center
               .panel.panel-default
                 .panel-heading
@@ -22,13 +22,14 @@ block content
                   strong Quantity
                 = data.product.qty
                   
-              .col-md-6
-                .well
-                  p!= data.product.description
-                .product-items
-                  a(href='#')
-                    button(onclick='confAlert()').btn.btn-success BUY
-                  a.btn.btn-primary(href='/contact') ASK ABOUT THIS PRODUCT
+            .col-md-6
+              .well
+                p!= data.product.description
+              .product-items
+                a(href='#')
+                  button(onclick='confAlert()').btn.btn-success BUY
+                a.btn.btn-primary(href='/contact') ASK ABOUT THIS PRODUCT
+                
         .col-sm-12.col-xs-12.wow.animated.fadeInUp
           .panel.panel-default
             .panel-heading

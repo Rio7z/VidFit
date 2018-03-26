@@ -5084,6 +5084,14 @@ a.badge:focus {
     font-size: 63px;
   }
 }
+.thumbnail2 {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.428571429;
+  background-color: #fff;
+  transition: border 0.2s ease-in-out;
+}
 .thumbnail {
   display: block;
   padding: 4px;
