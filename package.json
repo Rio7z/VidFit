@@ -19,6 +19,6 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node keystone.js",
-    "compile": "stylus -w public/styles/site.styl -o public/styles/site.css"
+    "compile": "stylus -w public/styles/site.styl -o public/styles/site.css",
   }
 }

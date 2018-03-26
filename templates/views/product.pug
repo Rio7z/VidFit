@@ -4,25 +4,23 @@ block content
     .row
       .col-md-12.col-lg-12
         article
-          p
-            a(href='/products').wow.animated.fadeInDown &larr; Back to Products
-            header
-              h1.animated.fadeInDown.text-center= data.product.title
-              hr
-            .row.wow.animated.fadeIn
-              .col-md-6
-                if data.product.image
-                  img.thumbnail.center-block(src=data.product._.image.limit(250) crop='fit').img-responsive
-              .col-md-3.text-center
-                .panel.panel-default
-                  .panel-heading
-                    strong Price
-                  h= data.product.price
-              .col-md-3.text-center
-                .panel.panel-default
-                  .panel-heading
-                    strong Quantity
-                  = data.product.qty
+          header
+            h1.animated.fadeInDown.text-center= data.product.title
+            hr
+          .row.wow.animated.fadeIn
+            .col-md-6
+              if data.product.image
+                img.thumbnail.center-block(src=data.product._.image.limit(250) crop='fit').img-responsive
+            .col-md-3.text-center
+              .panel.panel-default
+                .panel-heading
+                  strong Price
+                h= data.product.price
+            .col-md-3.text-center
+              .panel.panel-default
+                .panel-heading
+                  strong Quantity
+                = data.product.qty
                   
               .col-md-6
                 .well

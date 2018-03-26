@@ -3216,6 +3216,7 @@ select[multiple].input-group-lg > .input-group-btn > .btn {
 .btn.focus {
   color: #333;
   text-decoration: none;
+  transition: all 0.5s;
 }
 .btn:active,
 .btn.active {
@@ -5760,14 +5761,14 @@ button.list-group-item-danger.active:focus {
 }
 .panel-default > .panel-heading {
   color: #333;
-  background-color: #f5f5f5;
+  background-color: #ededed;
   border-color: #ddd;
 }
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #ddd;
 }
 .panel-default > .panel-heading .badge {
-  color: #f5f5f5;
+  color: #ededed;
   background-color: #333;
 }
 .panel-default > .panel-footer + .panel-collapse > .panel-body {
@@ -6738,6 +6739,12 @@ body {
 a:link {
   text-decoration: none !important;
 }
+.hover {
+  transition: all 0.5s;
+}
+.hover:hover {
+  transform: scale(1.1);
+}
 .top-space {
   padding-top: 8px;
 }
@@ -6825,12 +6832,20 @@ a:hover {
 .pagination li a:focus {
   color: #111;
 }
+.line {
+  padding-top: 10px;
+}
 .blackbar {
   background-color: #111;
   padding: 5px;
 }
 #footer {
   display: flex;
+  justify-content: center;
+  height: 100px;
+  background-color: #f2f2f2;
+  color: #777;
+  text-align: center;
 }
 #header {
   margin-top: 30px;

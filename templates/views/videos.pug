@@ -3,8 +3,7 @@ extends ../layouts/default
 mixin post(post)
 
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-		
-		.thumbnail.item-p.wow.animated.fadeIn
+		.thumbnail.item-p.wow.animated.fadeIn.hover
 			a.link(href='/videos/post/' + post.slug)
 				img(src=post._.image.limit(250))
 				hr
@@ -25,9 +24,9 @@ mixin post(post)
 block intro
 	.container
 		h1.text-center.animated.fadeInDown= data.category ? data.category.name : 'Latest Videos'
-		hr
+
 		
-		.dropdown
+		.dropdown.center
 			button.btn.btn-default.dropdown-toggle(type='button', id='dropdownMenu1', data-toggle='dropdown', aria-expanded='false')
 				| Categories 
 				span.caret
@@ -47,7 +46,7 @@ block content
 			else
 				if data.posts.results.length
 
-					.video.video-items
+					.video-items
 						each post in data.posts.results
 							+post(post)
 					

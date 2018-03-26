@@ -2,14 +2,11 @@ extends ../layouts/default
 
 block content
 	.container
-		article
-			p: a(href='/videos').animated.fadeIn &larr; back to the Videos
 			if !data.post
 				h2 Invalid Post.
 			else
 				header
 					h1.animated.fadeInDown= data.post.title
-				hr
 				.row.animated.fadeIn
 					
 					.col-md-12
